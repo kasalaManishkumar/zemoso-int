@@ -55,12 +55,12 @@ import static org.mockito.Mockito.when;
 
     }
 
-    @Test
-    void save() {
-        BookUser bookUser1=new BookUser(1,2,3);
-        bookUserService.save(bookUser1);
-        verify(bookUserRepository).save(bookUser1);
-    }
+//    @Test
+//    void save() {
+//        BookUser bookUser1=new BookUser(1,2,3);
+//        bookUserService.save(bookUser1);
+//        verify(bookUserRepository).save(bookUser1);
+//    }
     @Test
     void deleteById(){
         bookUserService.deleteById(1);

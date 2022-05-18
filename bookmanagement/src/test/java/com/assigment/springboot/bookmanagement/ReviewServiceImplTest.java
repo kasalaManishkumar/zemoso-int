@@ -61,12 +61,12 @@ class ReviewServiceImplTest {
 
     }
 
-    @Test
-    void save() {
-        Review review = new Review("excellent",new Book(2));
-        reviewService.save(review);
-        verify(reviewRepository).save(review);
-    }
+//    @Test
+//    void save() {
+//        Review review = new Review("excellent",new Book(2));
+//        reviewService.save(review);
+//        verify(reviewRepository).save(review);
+//    }
 
     @Test
     void deleteByUsername(){
