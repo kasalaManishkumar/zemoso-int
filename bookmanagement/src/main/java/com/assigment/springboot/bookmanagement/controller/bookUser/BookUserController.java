@@ -65,9 +65,6 @@ public class BookUserController {
             b.add(bookService.findById(theBookUsers.get(i).getBookId()).getBookName());
             c.add(theBookUsers.get(i).getQuantity());
         }
-        Collections.sort(a,Comparator.reverseOrder());
-        Collections.sort(b,Comparator.reverseOrder());
-        Collections.sort(c,Comparator.reverseOrder());
         theModel.addAttribute("a",a);
         theModel.addAttribute("b",b);
         theModel.addAttribute("c",c);

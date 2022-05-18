@@ -56,8 +56,6 @@ public class UserController {
     }
     @GetMapping("/showFormForAdd")
     public String showFormForAdd(Model theModel){
-
-
         User theUser=new User();
         theModel.addAttribute("user",theUser);
         return "users/user-form";

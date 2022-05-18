@@ -3,7 +3,6 @@ package com.assigment.springboot.bookmanagement.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -41,7 +40,7 @@ public class Book {
     @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL, mappedBy = "bookId")
     private List<Review> review;
 
-    public  Book() {
+    public  Book(int i) {
     }
 
     public void adjustQuantity(BookUser bookUser){
@@ -55,6 +54,9 @@ public class Book {
         this.price = price;
     }
 
+    public Book(){
+
+    }
 
     public Book(int id, String bookName, String genere, int quantity, int price) {
         this.id = id;

@@ -64,7 +64,7 @@ public class ReviewController {
     public String showFormForAdd(Model theModel){
         List<Book> theBooks=bookService.findAll();
         theModel.addAttribute("book",theBooks);
-        Review theReview=new Review();
+        Review theReview= new Review();
         theModel.addAttribute("review",theReview);
         return "review/review-form";
     }

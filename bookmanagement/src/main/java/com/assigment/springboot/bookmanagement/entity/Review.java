@@ -2,8 +2,6 @@ package com.assigment.springboot.bookmanagement.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import java.util.List;
 
 @Entity
 @Table(name = "review")
@@ -16,26 +14,33 @@ public class Review {
 
 
     @NotNull(message = "This field is required")
-    @Size(min=1,message = "is required")
     @Column(name = "comment")
     private String comment;
 
 
-    @NotNull(message = "This field is required")
-    @Size(min=1,message = "is required")
     @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "book_id")
     private Book bookId;
 
-    @NotNull(message = "This field is required")
-    @Size(min=1,message = "is required")
     private String username;
-
-    public Review() {
-    }
 
     public Review(String comment) {
         this.comment = comment;
+    }
+
+    public Review(String comment, Book bookId) {
+        this.comment = comment;
+        this.bookId = bookId;
+    }
+
+    public Review(String comment, Book bookId, String username) {
+        this.comment = comment;
+        this.bookId = bookId;
+        this.username = username;
+    }
+
+    public Review(){
+
     }
 
     public int getId() {
@@ -53,7 +58,6 @@ public class Review {
     public void setComment(String comment) {
         this.comment = comment;
     }
-
 
     public Book getBookId() {
         return bookId;
