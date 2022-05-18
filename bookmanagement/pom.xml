@@ -24,25 +24,22 @@
 		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 		<sonar.sources>src/main/java</sonar.sources>
 		<sonar.language>java</sonar.language>
-		<sonar.coverage.exclusions>**/com/ass/sp/bookmanagement/entity/**</sonar.coverage.exclusions>
-		<sonar.coverage.exclusions>**/com/abhi/cmart/dao/**</sonar.coverage.exclusions>
-		<sonar.coverage.exclusions>**/com/abhi/cmart/config/**</sonar.coverage.exclusions>
-		<sonar.coverage.exclusions>**/com/abhi/cmart/controller/**</sonar.coverage.exclusions>
-		<sonar.coverage.exclusions>**/com/abhi/cmart/SecurityConfiguration**</sonar.coverage.exclusions>
-		<sonar.coverage.exclusions>**/com/abhi/cmart/CmartApplication**</sonar.coverage.exclusions>
-		<sonar.coverage.exclusions>**/com/abhi/cmart/service/interfaces/**</sonar.coverage.exclusions>
-		<sonar.coverage.exclusions>**/com/abhi/cmart/utilities/**</sonar.coverage.exclusions>
-		<sonar.coverage.exclusions>**/com/abhi/cmart/exception/**</sonar.coverage.exclusions>
+		<sonar.coverage.exclusions>**/com/assigment/springboot/bookmanagement/entity/**</sonar.coverage.exclusions>
+		<sonar.coverage.exclusions>**/com/assigment/springboot/bookmanagement/dao/**</sonar.coverage.exclusions>
+		<sonar.coverage.exclusions>**/com/assigment/springboot/bookmanagement/config/**</sonar.coverage.exclusions>
+		<sonar.coverage.exclusions>**/com/assigment/springboot/bookmanagement/BookmanagementApplication**</sonar.coverage.exclusions>
+		<sonar.coverage.exclusions>**/com/assigment/springboot/bookmanagement/service/interfaces/**</sonar.coverage.exclusions>
+		<sonar.coverage.exclusions>**/com/assigment/springboot/bookmanagement/utilities/**</sonar.coverage.exclusions>
+		<sonar.coverage.exclusions>**/com/assigment/springboot/bookmanagement/exception/**</sonar.coverage.exclusions>
 		<sonar.exclusions>
-			**/com/abhi/cmart/entity/**,
-			**/com/abhi/cmart/dao/**,
-			**/com/abhi/cmart/config/**,
-			**/com/abhi/cmart/controller/**,
-			**/com/abhi/cmart/SecurityConfiguration**,
-			**/com/abhi/cmart/CmartApplication**,
-			**/com/abhi/cmart/service/interfaces/**,
-			**/com/abhi/cmart/utilities/**,
-			**/com/abhi/cmart/exception/**
+			**/com/assigment/springboot/bookmanagement/entity/**,
+			**/com/assigment/springboot/bookmanagement/dao/**,
+			**/com/assigment/springboot/bookmanagement/config/**,
+			**/com/assigment/springboot/bookmanagement/controller/**,
+			**/com/assigment/springboot/bookmanagement/BookmanagementApplication**,
+			**/com/assigment/springboot/bookmanagement/service/interfaces/**,
+			**/com/assigment/springboot/bookmanagement/utilities/**,
+			**/com/assigment/springboot/bookmanagement/exception/**
 		</sonar.exclusions>
 	</properties>
 	<dependencies>
