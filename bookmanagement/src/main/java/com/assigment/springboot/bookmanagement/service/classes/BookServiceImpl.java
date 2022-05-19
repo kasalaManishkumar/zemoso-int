@@ -2,6 +2,7 @@ package com.assigment.springboot.bookmanagement.service.classes;
 
 import com.assigment.springboot.bookmanagement.dao.BookRepository;
 import com.assigment.springboot.bookmanagement.entity.Book;
+import com.assigment.springboot.bookmanagement.exceptions.MyRuntimeException;
 import com.assigment.springboot.bookmanagement.service.interfaces.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,14 +28,14 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book findById(int theId) {
+    public Book findById(int theId) throws MyRuntimeException {
         Optional<Book> result = bookRepository.findById(theId);
         Book theBook=null;
         if(result.isPresent()){
             theBook=result.get();
         }
         else{
-            throw new RuntimeException("did not find book id "+ theId);
+            throw new MyRuntimeException("did not find book id "+ theId);
         }
         return theBook;
     }

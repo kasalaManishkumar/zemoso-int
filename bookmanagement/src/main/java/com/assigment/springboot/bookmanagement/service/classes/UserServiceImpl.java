@@ -2,6 +2,7 @@ package com.assigment.springboot.bookmanagement.service.classes;
 
 import com.assigment.springboot.bookmanagement.dao.UserRepository;
 import com.assigment.springboot.bookmanagement.entity.User;
+import com.assigment.springboot.bookmanagement.exceptions.MyRuntimeException;
 import com.assigment.springboot.bookmanagement.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -31,14 +32,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findById(int theId) {
+    public User findById(int theId) throws MyRuntimeException {
         Optional<User> result = userRepository.findById(theId);
         User theUser=null;
         if(result.isPresent()){
             theUser=result.get();
         }
         else{
-            throw new RuntimeException("did not find user id "+ theId);
+            throw new MyRuntimeException("did not find user id "+ theId);
         }
         return theUser;
     }

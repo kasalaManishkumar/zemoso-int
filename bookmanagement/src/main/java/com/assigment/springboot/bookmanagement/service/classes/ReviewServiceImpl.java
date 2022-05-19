@@ -2,6 +2,7 @@ package com.assigment.springboot.bookmanagement.service.classes;
 
 import com.assigment.springboot.bookmanagement.dao.ReviewRepository;
 import com.assigment.springboot.bookmanagement.entity.Review;
+import com.assigment.springboot.bookmanagement.exceptions.MyRuntimeException;
 import com.assigment.springboot.bookmanagement.service.interfaces.ReviewService;
 import com.assigment.springboot.bookmanagement.userdetails.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,14 +29,14 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public Review findById(int theId) {
+    public Review findById(int theId) throws MyRuntimeException {
         Optional<Review> result = reviewRepository.findById(theId);
         Review theReview=null;
         if(result.isPresent()){
             theReview=result.get();
         }
         else{
-            throw new RuntimeException("did not find review id "+ theId);
+            throw new MyRuntimeException("did not find review id "+ theId);
         }
         return theReview;
     }

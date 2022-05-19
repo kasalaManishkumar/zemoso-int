@@ -2,6 +2,7 @@ package com.assigment.springboot.bookmanagement.controller.review;
 
 import com.assigment.springboot.bookmanagement.entity.Book;
 import com.assigment.springboot.bookmanagement.entity.Review;
+import com.assigment.springboot.bookmanagement.exceptions.MyRuntimeException;
 import com.assigment.springboot.bookmanagement.service.interfaces.BookService;
 import com.assigment.springboot.bookmanagement.service.interfaces.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,7 +71,7 @@ public class ReviewController {
     }
 
     @GetMapping("/showFormForUpdate")
-    public String showFormForUpdate(@RequestParam("reviewId") int theId, Model theModel){
+    public String showFormForUpdate(@RequestParam("reviewId") int theId, Model theModel) throws MyRuntimeException {
         List<Book> theBooks=bookService.findAll();
         theModel.addAttribute("book",theBooks);
         Review theReview=reviewService.findById(theId);

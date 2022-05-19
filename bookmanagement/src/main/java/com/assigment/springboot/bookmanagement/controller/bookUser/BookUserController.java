@@ -3,6 +3,7 @@ package com.assigment.springboot.bookmanagement.controller.bookUser;
 import com.assigment.springboot.bookmanagement.entity.Book;
 import com.assigment.springboot.bookmanagement.entity.BookUser;
 import com.assigment.springboot.bookmanagement.entity.User;
+import com.assigment.springboot.bookmanagement.exceptions.MyRuntimeException;
 import com.assigment.springboot.bookmanagement.service.interfaces.BookService;
 import com.assigment.springboot.bookmanagement.service.interfaces.BookUserService;
 import com.assigment.springboot.bookmanagement.service.interfaces.UserService;
@@ -40,7 +41,7 @@ public class BookUserController {
     }
 
     @PostMapping("/save")
-    public String saveUserBooks(@Valid @ModelAttribute("book_user") BookUser theBookUser, BindingResult theBindingResult){
+    public String saveUserBooks(@Valid @ModelAttribute("book_user") BookUser theBookUser, BindingResult theBindingResult) throws MyRuntimeException {
         if(theBindingResult.hasErrors()){
             return "bookuser/bookuser-form";
         }
@@ -54,7 +55,7 @@ public class BookUserController {
     }}
 
     @GetMapping("/list")
-    public String listBookUser(Model theModel){
+    public String listBookUser(Model theModel) throws MyRuntimeException {
         //getting employees from database
         List<BookUser> theBookUsers=bookUserService.findAll();
         List<String> a=new ArrayList<>();
@@ -83,7 +84,7 @@ public class BookUserController {
     }
 
     @GetMapping("/showFormForUpdate")
-    public String showFormForUpdate(@RequestParam("book_userId") int theId, Model theModel){
+    public String showFormForUpdate(@RequestParam("book_userId") int theId, Model theModel) throws MyRuntimeException {
         List<Book> theBooks=bookService.findAll();
         BookUser theBookUser=bookUserService.findById(theId);
         theModel.addAttribute("book_user",theBookUser);

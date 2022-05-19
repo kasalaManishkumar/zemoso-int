@@ -1,6 +1,7 @@
 package com.assigment.springboot.bookmanagement.controller.book;
 
 import com.assigment.springboot.bookmanagement.entity.Book;
+import com.assigment.springboot.bookmanagement.exceptions.MyRuntimeException;
 import com.assigment.springboot.bookmanagement.service.interfaces.BookService;
 import com.assigment.springboot.bookmanagement.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +63,7 @@ public class BookController {
     }
 
     @GetMapping("/showFormForUpdate")
-    public String showFormForUpdate(@RequestParam("bookId") int theId, Model theModel){
+    public String showFormForUpdate(@RequestParam("bookId") int theId, Model theModel) throws MyRuntimeException {
         Book theBook=bookService.findById(theId);
         theModel.addAttribute("book",theBook);
         return "book/book-form";
@@ -75,7 +76,7 @@ public class BookController {
     }
 
     @GetMapping("/buy")
-    public String showFormForQuantityUpdate(@RequestParam("bookId") int theId, Model theModel){
+    public String showFormForQuantityUpdate(@RequestParam("bookId") int theId, Model theModel) throws MyRuntimeException {
         Book theBook=bookService.findById(theId);
         theModel.addAttribute("book",theBook);
         return "book/quantity-form";

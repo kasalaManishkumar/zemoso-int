@@ -1,6 +1,7 @@
 package com.assigment.springboot.bookmanagement.controller.user;
 
 import com.assigment.springboot.bookmanagement.entity.User;
+import com.assigment.springboot.bookmanagement.exceptions.MyRuntimeException;
 import com.assigment.springboot.bookmanagement.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
@@ -60,7 +61,7 @@ public class UserController {
     }
 
     @GetMapping("/showFormForUpdate")
-    public String showFormForUpdate(@RequestParam("userId") int theId, Model theModel){
+    public String showFormForUpdate(@RequestParam("userId") int theId, Model theModel) throws MyRuntimeException {
 
         User theUser=userService.findById(theId);
         theModel.addAttribute("user",theUser);

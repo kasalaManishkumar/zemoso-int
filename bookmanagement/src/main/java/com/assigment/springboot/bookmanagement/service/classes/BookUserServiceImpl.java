@@ -2,6 +2,7 @@ package com.assigment.springboot.bookmanagement.service.classes;
 
 import com.assigment.springboot.bookmanagement.dao.BookUserRepository;
 import com.assigment.springboot.bookmanagement.entity.BookUser;
+import com.assigment.springboot.bookmanagement.exceptions.MyRuntimeException;
 import com.assigment.springboot.bookmanagement.service.interfaces.BookUserService;
 import com.assigment.springboot.bookmanagement.userdetails.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,23 +22,20 @@ public class BookUserServiceImpl implements BookUserService {
         bookUserRepository=theBookUserRepository;
     }
 
-    public BookUserServiceImpl() {
-    }
-
     @Override
     public List<BookUser> findAll() {
         return bookUserRepository.findAll();
     }
 
     @Override
-    public BookUser findById(int theId) {
+    public BookUser findById(int theId) throws MyRuntimeException {
         Optional<BookUser> result = bookUserRepository.findById(theId);
         BookUser theBookUser=null;
         if(result.isPresent()){
             theBookUser=result.get();
         }
         else{
-            throw new RuntimeException("did not find bookuser id "+ theId);
+            throw new MyRuntimeException("did not find bookuser id "+ theId);
         }
         return theBookUser;
     }
