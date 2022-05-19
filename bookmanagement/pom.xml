@@ -31,10 +31,7 @@
 		<sonar.coverage.exclusions>**/com/assigment/springboot/bookmanagement/BookmanagementApplication**</sonar.coverage.exclusions>
 		<sonar.coverage.exclusions>**/com/assigment/springboot/bookmanagement/service/interfaces/**</sonar.coverage.exclusions>
 
-
-		<sonar.coverage.exclusions>**/com/assigment/springboot/bookmanagement/userDetails/**</sonar.coverage.exclusions>
 		<sonar.exclusions>
-			**/com/assigment/springboot/bookmanagement/userDetails/**
 			**/com/assigment/springboot/bookmanagement/entity/**,
 			**/com/assigment/springboot/bookmanagement/dao/**,
 			**/com/assigment/springboot/bookmanagement/config/**,
