@@ -2,9 +2,7 @@ package com.assigment.springboot.bookmanagement;
 
 import com.assigment.springboot.bookmanagement.dao.BookRepository;
 import com.assigment.springboot.bookmanagement.entity.Book;
-import com.assigment.springboot.bookmanagement.service.book.BookService;
-import com.assigment.springboot.bookmanagement.service.book.BookServiceImpl;
-import org.assertj.core.api.Assertions;
+import com.assigment.springboot.bookmanagement.service.classes.BookServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

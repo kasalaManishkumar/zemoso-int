@@ -4,7 +4,7 @@ package com.assigment.springboot.bookmanagement;
 import com.assigment.springboot.bookmanagement.dao.ReviewRepository;
 import com.assigment.springboot.bookmanagement.entity.Book;
 import com.assigment.springboot.bookmanagement.entity.Review;
-import com.assigment.springboot.bookmanagement.service.review.ReviewServiceImpl;
+import com.assigment.springboot.bookmanagement.service.classes.ReviewServiceImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

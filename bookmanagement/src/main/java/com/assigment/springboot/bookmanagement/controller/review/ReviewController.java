@@ -2,8 +2,8 @@ package com.assigment.springboot.bookmanagement.controller.review;
 
 import com.assigment.springboot.bookmanagement.entity.Book;
 import com.assigment.springboot.bookmanagement.entity.Review;
-import com.assigment.springboot.bookmanagement.service.book.BookService;
-import com.assigment.springboot.bookmanagement.service.review.ReviewService;
+import com.assigment.springboot.bookmanagement.service.interfaces.BookService;
+import com.assigment.springboot.bookmanagement.service.interfaces.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;

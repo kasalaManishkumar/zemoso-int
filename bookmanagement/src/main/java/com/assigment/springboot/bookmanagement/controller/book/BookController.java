@@ -1,8 +1,8 @@
 package com.assigment.springboot.bookmanagement.controller.book;
 
 import com.assigment.springboot.bookmanagement.entity.Book;
-import com.assigment.springboot.bookmanagement.service.book.BookService;
-import com.assigment.springboot.bookmanagement.service.user.UserService;
+import com.assigment.springboot.bookmanagement.service.interfaces.BookService;
+import com.assigment.springboot.bookmanagement.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;

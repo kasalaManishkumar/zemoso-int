@@ -1,7 +1,8 @@
-package com.assigment.springboot.bookmanagement.service.bookuser;
+package com.assigment.springboot.bookmanagement.service.classes;
 
 import com.assigment.springboot.bookmanagement.dao.BookUserRepository;
 import com.assigment.springboot.bookmanagement.entity.BookUser;
+import com.assigment.springboot.bookmanagement.service.interfaces.BookUserService;
 import com.assigment.springboot.bookmanagement.userdetails.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class BookUserServiceImpl implements BookUserService{
+public class BookUserServiceImpl implements BookUserService {
     private BookUserRepository bookUserRepository;
 
     @Autowired

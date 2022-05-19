@@ -2,7 +2,7 @@ package com.assigment.springboot.bookmanagement;
 
 import com.assigment.springboot.bookmanagement.dao.BookUserRepository;
 import com.assigment.springboot.bookmanagement.entity.BookUser;
-import com.assigment.springboot.bookmanagement.service.bookuser.BookUserServiceImpl;
+import com.assigment.springboot.bookmanagement.service.classes.BookUserServiceImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

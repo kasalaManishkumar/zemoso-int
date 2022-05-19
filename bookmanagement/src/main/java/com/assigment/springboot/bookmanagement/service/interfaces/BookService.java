@@ -1,4 +1,4 @@
-package com.assigment.springboot.bookmanagement.service.book;
+package com.assigment.springboot.bookmanagement.service.interfaces;
 
 import com.assigment.springboot.bookmanagement.entity.Book;
 

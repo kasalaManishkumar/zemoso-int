@@ -1,7 +1,8 @@
-package com.assigment.springboot.bookmanagement.service.review;
+package com.assigment.springboot.bookmanagement.service.classes;
 
 import com.assigment.springboot.bookmanagement.dao.ReviewRepository;
 import com.assigment.springboot.bookmanagement.entity.Review;
+import com.assigment.springboot.bookmanagement.service.interfaces.ReviewService;
 import com.assigment.springboot.bookmanagement.userdetails.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;

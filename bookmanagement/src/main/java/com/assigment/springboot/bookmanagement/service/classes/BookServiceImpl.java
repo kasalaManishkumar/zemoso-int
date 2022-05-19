@@ -1,7 +1,8 @@
-package com.assigment.springboot.bookmanagement.service.book;
+package com.assigment.springboot.bookmanagement.service.classes;
 
 import com.assigment.springboot.bookmanagement.dao.BookRepository;
 import com.assigment.springboot.bookmanagement.entity.Book;
+import com.assigment.springboot.bookmanagement.service.interfaces.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
