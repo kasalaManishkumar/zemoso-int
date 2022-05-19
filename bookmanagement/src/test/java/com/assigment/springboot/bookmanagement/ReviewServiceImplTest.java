@@ -4,6 +4,7 @@ package com.assigment.springboot.bookmanagement;
 import com.assigment.springboot.bookmanagement.dao.ReviewRepository;
 import com.assigment.springboot.bookmanagement.entity.Book;
 import com.assigment.springboot.bookmanagement.entity.Review;
+import com.assigment.springboot.bookmanagement.exceptions.MyRuntimeException;
 import com.assigment.springboot.bookmanagement.service.classes.ReviewServiceImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -50,7 +51,7 @@ class ReviewServiceImplTest {
     }
 
     @Test
-    void findById(){
+    void findById() throws MyRuntimeException {
 
         when(reviewRepository.findById(1)).thenReturn(Optional.of(new Review( "excellent", new Book(2))));
         Review review = reviewService.findById(1);

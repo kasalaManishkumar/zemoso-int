@@ -2,6 +2,7 @@ package com.assigment.springboot.bookmanagement;
 
 import com.assigment.springboot.bookmanagement.dao.BookRepository;
 import com.assigment.springboot.bookmanagement.entity.Book;
+import com.assigment.springboot.bookmanagement.exceptions.MyRuntimeException;
 import com.assigment.springboot.bookmanagement.service.classes.BookServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -50,7 +51,7 @@ import static org.mockito.Mockito.when;
     }
 
     @Test
-    void findById(){
+    void findById() throws MyRuntimeException {
         bookService = new BookServiceImpl(bookRepository);
         List<Book> bookList = new ArrayList<>();
         Book book1=new Book(1,"Wings of fire","biography",200,180);

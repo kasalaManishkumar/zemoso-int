@@ -2,6 +2,7 @@ package com.assigment.springboot.bookmanagement;
 
 import com.assigment.springboot.bookmanagement.dao.UserRepository;
 import com.assigment.springboot.bookmanagement.entity.User;
+import com.assigment.springboot.bookmanagement.exceptions.MyRuntimeException;
 import com.assigment.springboot.bookmanagement.service.classes.UserServiceImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -44,7 +45,7 @@ import static org.mockito.Mockito.when;
     }
 
     @Test
-    void findById(){
+    void findById() throws MyRuntimeException {
 
         when(userRepository.findById(1)).thenReturn(Optional.of(new User(1, "ADMIN", "manish", "hello123")));
         User user=userService.findById(1);
