@@ -1,8 +1,8 @@
-package com.assigment.springboot.bookmanagement.service.bookUser;
+package com.assigment.springboot.bookmanagement.service.bookuser;
 
 import com.assigment.springboot.bookmanagement.dao.BookUserRepository;
 import com.assigment.springboot.bookmanagement.entity.BookUser;
-import com.assigment.springboot.bookmanagement.userDetails.CustomUserDetails;
+import com.assigment.springboot.bookmanagement.userdetails.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

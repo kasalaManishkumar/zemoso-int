@@ -1,4 +1,4 @@
-package com.assigment.springboot.bookmanagement.userDetails;
+package com.assigment.springboot.bookmanagement.userdetails;
 
 
 import com.assigment.springboot.bookmanagement.entity.User;

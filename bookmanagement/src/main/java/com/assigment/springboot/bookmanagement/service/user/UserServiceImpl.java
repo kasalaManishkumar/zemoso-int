@@ -2,7 +2,6 @@ package com.assigment.springboot.bookmanagement.service.user;
 
 import com.assigment.springboot.bookmanagement.dao.UserRepository;
 import com.assigment.springboot.bookmanagement.entity.User;
-import com.assigment.springboot.bookmanagement.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;

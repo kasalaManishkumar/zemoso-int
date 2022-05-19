@@ -1,7 +1,6 @@
 package com.assigment.springboot.bookmanagement.service.book;
 
 import com.assigment.springboot.bookmanagement.entity.Book;
-import com.assigment.springboot.bookmanagement.entity.User;
 
 import java.util.List;
 

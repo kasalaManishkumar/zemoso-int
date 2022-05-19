@@ -4,7 +4,7 @@ import com.assigment.springboot.bookmanagement.entity.Book;
 import com.assigment.springboot.bookmanagement.entity.BookUser;
 import com.assigment.springboot.bookmanagement.entity.User;
 import com.assigment.springboot.bookmanagement.service.book.BookService;
-import com.assigment.springboot.bookmanagement.service.bookUser.BookUserService;
+import com.assigment.springboot.bookmanagement.service.bookuser.BookUserService;
 import com.assigment.springboot.bookmanagement.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
