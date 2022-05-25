@@ -7,10 +7,7 @@ import com.assigment.springboot.bookmanagement.service.interfaces.ReviewService;
 import com.assigment.springboot.bookmanagement.userdetails.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.test.context.support.WithAnonymousUser;
-import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -50,8 +47,6 @@ public class ReviewServiceImpl implements ReviewService {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             CustomUserDetails principal = (CustomUserDetails) auth.getPrincipal();
             theReview.setUsername(principal.getUsername());
-
-            theReview.setUsername("Manish");
 
         reviewRepository.save(theReview);
 

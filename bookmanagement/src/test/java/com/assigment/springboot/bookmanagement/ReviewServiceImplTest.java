@@ -69,14 +69,7 @@ class ReviewServiceImplTest {
         verify(reviewRepository,times(1)).findById(1);
 
     }
-    @Test
-    public void mockApplicationUser() {
-        Authentication authentication = mock(Authentication.class);
-        SecurityContext securityContext = mock(SecurityContext.class);
-        when(securityContext.getAuthentication()).thenReturn(authentication);
-        SecurityContextHolder.setContext(securityContext);
-        when(SecurityContextHolder.getContext().getAuthentication().getDetails()).thenReturn(true);
-    }
+
 
 
     @Test
