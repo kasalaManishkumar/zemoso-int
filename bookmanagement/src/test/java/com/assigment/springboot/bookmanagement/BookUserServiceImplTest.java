@@ -1,10 +1,13 @@
 package com.assigment.springboot.bookmanagement;
 
 import com.assigment.springboot.bookmanagement.dao.BookUserRepository;
+import com.assigment.springboot.bookmanagement.entity.Book;
 import com.assigment.springboot.bookmanagement.entity.BookUser;
 import com.assigment.springboot.bookmanagement.exceptions.MyRuntimeException;
 import com.assigment.springboot.bookmanagement.service.classes.BookUserServiceImpl;
+import com.assigment.springboot.bookmanagement.service.classes.UserServiceImpl;
 import com.assigment.springboot.bookmanagement.service.interfaces.BookUserService;
+import com.assigment.springboot.bookmanagement.userdetails.CustomUserDetails;
 import lombok.var;
 import org.aspectj.lang.annotation.Before;
 import org.assertj.core.api.Assertions;
@@ -30,6 +33,7 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
+@WithMockUser(username = "Manish", authorities = {"ROLE_USER"})
  class BookUserServiceImplTest {
 
 
@@ -44,6 +48,9 @@ import static org.mockito.Mockito.*;
 
     @InjectMocks
     private BookUserServiceImpl bookUserService;
+
+
+
 
 
 
@@ -67,7 +74,6 @@ import static org.mockito.Mockito.*;
         BookUser bookUser=bookUserService.findById(1);
         Assertions.assertThat(bookUser.getBookId()).isEqualTo(1);
         Assertions.assertThat(bookUser.getQuantity()).isEqualTo(2);
-
 
     }
 

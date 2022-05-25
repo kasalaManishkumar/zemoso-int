@@ -67,7 +67,6 @@ class ReviewServiceImplTest {
         Assertions.assertThat(review.getComment()).isEqualTo("excellent");
 
         verify(reviewRepository,times(1)).findById(1);
-
     }
 
 
