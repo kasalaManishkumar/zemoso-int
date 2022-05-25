@@ -23,6 +23,7 @@
     <div sec:authorize="hasAuthority('ADMIN')">
         <a th:href="@{/users/list}" class="btn btn-info btn-sm">Users directory</a>
         <a th:href="@{/book/list}" class="btn btn-info btn-sm">Book directory</a>
+        <a th:href="@{/bookUser/list}" class="btn btn-info btn-sm">Purchase History</a>
     </div>
     <div sec:authorize="hasAuthority('CUSTOMER')">
 

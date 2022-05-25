@@ -15,8 +15,10 @@
 <body>
 
 <div class="container">
+    <div sec:authorize="hasAuthority('ADMIN')">
     <a th:href="@{/book/showFormForAdd}" class="btn btn-primary btn-sm mb-3">Add Book</a>
     <h3>Users Directory</h3>
+    </div>
 
     <div sec:authorize="hasAuthority('CUSTOMER')">
             <a th:href="@{/bookUser/showFormForAdd}" class="btn btn-info btn-sm">purchase</a>

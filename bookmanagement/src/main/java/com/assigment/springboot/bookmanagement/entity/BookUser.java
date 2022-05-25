@@ -24,14 +24,12 @@ public class BookUser {
     private int quantity;
 
 
-
-    public BookUser(int bookId, int userId, int quantity) {
-        this.bookId = bookId;
-        this.userId = userId;
-        this.quantity = quantity;
+    public BookUser(){
     }
 
-    public BookUser() {
+    public BookUser(int bookId, int quantity) {
+        this.bookId = bookId;
+        this.quantity = quantity;
     }
 
     public int getId() {

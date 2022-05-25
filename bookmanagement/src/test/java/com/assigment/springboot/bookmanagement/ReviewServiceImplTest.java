@@ -14,6 +14,12 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +31,8 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
 class ReviewServiceImplTest {
+
+
     @Mock
     private ReviewRepository reviewRepository;
 
@@ -61,13 +69,15 @@ class ReviewServiceImplTest {
         verify(reviewRepository,times(1)).findById(1);
 
     }
+    @Test
+    public void mockApplicationUser() {
+        Authentication authentication = mock(Authentication.class);
+        SecurityContext securityContext = mock(SecurityContext.class);
+        when(securityContext.getAuthentication()).thenReturn(authentication);
+        SecurityContextHolder.setContext(securityContext);
+        when(SecurityContextHolder.getContext().getAuthentication().getDetails()).thenReturn(true);
+    }
 
-//    @Test
-//    void save() {
-//        Review review = new Review("excellent",new Book(2));
-//        reviewService.save(review);
-//        verify(reviewRepository).save(review);
-//    }
 
     @Test
     void deleteByUsername(){

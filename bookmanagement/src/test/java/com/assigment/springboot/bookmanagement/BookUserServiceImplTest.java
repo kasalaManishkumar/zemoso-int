@@ -4,26 +4,40 @@ import com.assigment.springboot.bookmanagement.dao.BookUserRepository;
 import com.assigment.springboot.bookmanagement.entity.BookUser;
 import com.assigment.springboot.bookmanagement.exceptions.MyRuntimeException;
 import com.assigment.springboot.bookmanagement.service.classes.BookUserServiceImpl;
+import com.assigment.springboot.bookmanagement.service.interfaces.BookUserService;
+import lombok.var;
+import org.aspectj.lang.annotation.Before;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.test.context.support.WithMockUser;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
  class BookUserServiceImplTest {
+
+
+//    @Before
+//    public void setupMock() {
+//        MockitoAnnotations.initMocks(this);
+//    }
+
 
     @Mock
     private BookUserRepository bookUserRepository;
@@ -31,13 +45,15 @@ import static org.mockito.Mockito.when;
     @InjectMocks
     private BookUserServiceImpl bookUserService;
 
+
+
     @Test
     void findAll() {
         bookUserService = new BookUserServiceImpl(bookUserRepository);
         List<BookUser> bookUserList = new ArrayList<>();
 
-        BookUser bookUser1=new BookUser(1,1,2);
-        BookUser bookUser2=new BookUser(2,1,3);
+        BookUser bookUser1=new BookUser(1,1);
+        BookUser bookUser2=new BookUser(2,1);
         bookUserList.add(bookUser1);
         bookUserList.add(bookUser2);
         when(bookUserService.findAll()).thenReturn(bookUserList);
@@ -47,21 +63,23 @@ import static org.mockito.Mockito.when;
     @Test
     void findById() throws MyRuntimeException {
 
-        when(bookUserRepository.findById(1)).thenReturn(Optional.of(new BookUser(1,2,3)));
+        when(bookUserRepository.findById(1)).thenReturn(Optional.of(new BookUser(1,2)));
         BookUser bookUser=bookUserService.findById(1);
         Assertions.assertThat(bookUser.getBookId()).isEqualTo(1);
-        Assertions.assertThat(bookUser.getUserId()).isEqualTo(2);
-        Assertions.assertThat(bookUser.getQuantity()).isEqualTo(3);
+        Assertions.assertThat(bookUser.getQuantity()).isEqualTo(2);
 
 
     }
+    @Test
+    public void mockApplicationUser() {
+        Authentication authentication = mock(Authentication.class);
+        SecurityContext securityContext = mock(SecurityContext.class);
+        when(securityContext.getAuthentication()).thenReturn(authentication);
+        SecurityContextHolder.setContext(securityContext);
+        when(SecurityContextHolder.getContext().getAuthentication().getDetails()).thenReturn(true);
+    }
 
-//    @Test
-//    void save() {
-//        BookUser bookUser1=new BookUser(1,2,3);
-//        bookUserService.save(bookUser1);
-//        verify(bookUserRepository).save(bookUser1);
-//    }
+
     @Test
     void deleteById(){
         bookUserService.deleteById(1);

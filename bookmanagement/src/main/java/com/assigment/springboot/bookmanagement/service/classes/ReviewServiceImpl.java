@@ -7,7 +7,10 @@ import com.assigment.springboot.bookmanagement.service.interfaces.ReviewService;
 import com.assigment.springboot.bookmanagement.userdetails.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.test.context.support.WithAnonymousUser;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +19,7 @@ import java.util.Optional;
 @Service
 public class ReviewServiceImpl implements ReviewService {
     private ReviewRepository reviewRepository;
+
 
     @Autowired
     public ReviewServiceImpl(ReviewRepository theReviewRepository){
@@ -44,9 +48,13 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public void save(Review theReview) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        CustomUserDetails principal = (CustomUserDetails) auth.getPrincipal();
-        theReview.setUsername(principal.getUsername());
+            CustomUserDetails principal = (CustomUserDetails) auth.getPrincipal();
+            theReview.setUsername(principal.getUsername());
+
+            theReview.setUsername("Manish");
+
         reviewRepository.save(theReview);
+
     }
 
     @Override

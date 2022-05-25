@@ -51,7 +51,7 @@ public class BookUserController {
         theBooks.setQuantity(theBooks.getQuantity()-theBookUser.getQuantity());
         bookUserService.save(theBookUser);
         bookService.save(theBooks);}
-        return "redirect:/bookUser/list";
+        return "purchased";
     }}
 
     @GetMapping("/list")
@@ -78,7 +78,7 @@ public class BookUserController {
         theModel.addAttribute("book",theBooks);
         List<User> theUsers=userService.findAll();
         theModel.addAttribute("user",theUsers);
-        BookUser theBookUser=new BookUser();
+        BookUser theBookUser=new BookUser(1, 3);
         theModel.addAttribute("book_user",theBookUser);
         return "bookuser/bookuser-form";
     }
