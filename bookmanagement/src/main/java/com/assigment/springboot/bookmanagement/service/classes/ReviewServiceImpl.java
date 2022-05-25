@@ -45,12 +45,9 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public void save(Review theReview) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-            CustomUserDetails principal = (CustomUserDetails) auth.getPrincipal();
-            theReview.setUsername(principal.getUsername());
-
-        reviewRepository.save(theReview);
-
-    }
+        CustomUserDetails principal = (CustomUserDetails) auth.getPrincipal();
+        theReview.setUsername(principal.getUsername());
+        reviewRepository.save(theReview);}
 
     @Override
     public void deleteById(int theId) {

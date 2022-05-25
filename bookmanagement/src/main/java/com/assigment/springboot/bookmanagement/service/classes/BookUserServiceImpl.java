@@ -43,11 +43,9 @@ public class BookUserServiceImpl implements BookUserService {
     @Override
     public void save(BookUser theBookUser) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-
         CustomUserDetails principal = (CustomUserDetails) auth.getPrincipal();
         theBookUser.setUserId(principal.getId());
-        bookUserRepository.save(theBookUser);
-    }
+        bookUserRepository.save(theBookUser);}
 
     @Override
     public void deleteById(int theId) {
